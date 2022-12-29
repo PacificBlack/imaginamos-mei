@@ -8,7 +8,12 @@
 
 [Api Publica](https://imaginemos-mei-api.onrender.com) enlace para acceder a la api.
 [Api documentada](https://imaginemos-mei-api.onrender.com/docs) documentacion de la api con swagger.
+
+
 [Pruebas con postman](https://www.postman.com/musicar-ingenieria/workspace/pruebas/collection/15670423-60f3d5da-838d-4d58-88aa-749287789ccf?action=share&creator=15670423&ctx=documentation) Documentación con postman, cambiar Enviroment a Production.
+
+[Documenter Postman](https://documenter.getpostman.com/view/15670423/2s8Z6yXYET).
+
 
 ## Tecnologias Usadas
 
