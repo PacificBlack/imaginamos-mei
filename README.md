@@ -4,6 +4,12 @@
   <a href="https://www.imaginamos.com/" target="blank"><img src="https://www.imaginamos.com/wp-content/uploads/2021/04/Brand-300x77.png" width="320" alt="Musicar Logo" /></a>
 </p>
 
+## Enlaces publicos
+
+[Api Publica](https://imaginemos-mei-api.onrender.com) enlace para acceder a la api.
+[Api documentada](https://imaginemos-mei-api.onrender.com/docs) documentacion de la api con swagger.
+
+
 ## Tecnologias Usadas
 
 [PostgreSql](https://www.postgresql.org/) como gestor de base de datos.
@@ -42,7 +48,6 @@ comportamiento.
 ● Realizarlo con microservicios.
 
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 ## Instalación
 
