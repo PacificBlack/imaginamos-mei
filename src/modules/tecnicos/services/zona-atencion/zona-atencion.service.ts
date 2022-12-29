@@ -9,6 +9,7 @@ import {
 import { DeleteResult, Repository } from 'typeorm';
 import { DTOZonaAtencion } from '../../dto';
 import { ZonaAtencion } from '../../entities';
+import { ZonaAtencionInterface } from '../../interfaces';
 
 @Injectable()
 export class ZonaAtencionService {
@@ -16,6 +17,19 @@ export class ZonaAtencionService {
     @InjectRepository(ZonaAtencion)
     private readonly zona_atencion_repository: Repository<ZonaAtencion>,
   ) {}
+
+  async SeedZonasAtencion() {
+    const zonas: ZonaAtencionInterface[] = [
+      { id: 1, ubicacion: 'Sur' },
+      { id: 2, ubicacion: 'Norte' },
+      { id: 3, ubicacion: 'Oriente' },
+      { id: 4, ubicacion: 'Occidente' },
+    ];
+
+    return await this.zona_atencion_repository.save(zonas).catch((e) => {
+      throw `${e} en el SeedZonasAtencion`;
+    });
+  }
 
   async obtenerZonasAtencion(): Promise<ZonaAtencion[]> {
     return await this.zona_atencion_repository.find({ order: { id: 'ASC' } });
