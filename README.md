@@ -1,4 +1,17 @@
-## Description
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+  <br>
+  <a href="https://www.imaginamos.com/" target="blank"><img src="https://www.imaginamos.com/wp-content/uploads/2021/04/Brand-300x77.png" width="320" alt="Musicar Logo" /></a>
+</p>
+
+## Tecnologias Usadas
+
+[PostgreSql](https://www.postgresql.org/) como gestor de base de datos.
+[TypeORM](https://typeorm.io/) como ORM para la comunicación entre bd y aplicación.
+[Docker](https://www.docker.com/) como contenedor de despliegue
+
+
+## Descripcion
 
 Servidor desarrollado en NestJS que resuelve la siguiente prueba tecnica:
 
