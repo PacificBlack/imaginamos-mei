@@ -11,6 +11,7 @@ import {
   Post,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 import {
   ACTUALIZADO,
   CREADO,
@@ -21,6 +22,7 @@ import { DTOZonaAtencion } from '../../dto';
 import { ZonaAtencion } from '../../entities';
 import { ZonaAtencionService } from '../../services';
 
+@ApiTags('Módulo Tecnicos - Zonas Atención')
 @Controller('zona-atencion')
 export class ZonaAtencionController {
   constructor(private readonly zona_atencion_service: ZonaAtencionService) {}
@@ -31,6 +33,10 @@ export class ZonaAtencionController {
     return await this.zona_atencion_service.obtenerZonasAtencion();
   }
 
+  @ApiParam({
+    description: 'Obtiene una >ona de atencion dependiendo del id',
+    name: 'id',
+  })
   @Get('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerZonaAtencion(
@@ -39,6 +45,10 @@ export class ZonaAtencionController {
     return await this.zona_atencion_service.obtenerZonaAtencion(id);
   }
 
+  @ApiBody({
+    description: 'Diseñada para crear zonas de atención',
+    type: DTOZonaAtencion,
+  })
   @Post('')
   @HttpCode(HttpStatus.ACCEPTED)
   async crearZonaAtencion(
@@ -60,6 +70,10 @@ export class ZonaAtencionController {
       });
   }
 
+  @ApiBody({
+    description: 'Diseñada para modificar zonas de atención',
+    type: DTOZonaAtencion,
+  })
   @Patch('')
   @HttpCode(HttpStatus.ACCEPTED)
   async modificarZonaAtencion(
@@ -81,6 +95,10 @@ export class ZonaAtencionController {
       });
   }
 
+  @ApiParam({
+    description: 'Elimina una >ona de atencion dependiendo del id',
+    name: 'id',
+  })
   @Delete('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async eliminarZonaAtencion(

@@ -11,6 +11,7 @@ import {
   Post,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 import {
   ACTUALIZADO,
   CREADO,
@@ -21,6 +22,7 @@ import { DTOTipoServicio } from '../../dto';
 import { TipoServicio } from '../../entities';
 import { TipoServicioService } from '../../services';
 
+@ApiTags('Módulo Ordenes - Tipo Servicio')
 @Controller('tipo-servicio')
 export class TipoServicioController {
   constructor(private readonly tipo_servicio_service: TipoServicioService) {}
@@ -31,6 +33,10 @@ export class TipoServicioController {
     return await this.tipo_servicio_service.obtenerTiposServicios();
   }
 
+  @ApiParam({
+    description: 'Obtiene un tipo de servicio dependiendo del id',
+    name: 'id',
+  })
   @Get('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerTipoServicio(
@@ -39,6 +45,10 @@ export class TipoServicioController {
     return await this.tipo_servicio_service.obtenerTipoServicio(id);
   }
 
+  @ApiBody({
+    description: 'Diseñada para crear tipos de servicio',
+    type: DTOTipoServicio,
+  })
   @Post('')
   @HttpCode(HttpStatus.ACCEPTED)
   async crearTipoServicio(
@@ -60,6 +70,10 @@ export class TipoServicioController {
       });
   }
 
+  @ApiBody({
+    description: 'Diseñada para modificar tipos de servicio',
+    type: DTOTipoServicio,
+  })
   @Patch('')
   @HttpCode(HttpStatus.ACCEPTED)
   async modificarTipoServicio(
@@ -81,6 +95,10 @@ export class TipoServicioController {
       });
   }
 
+  @ApiParam({
+    description: 'Elimina un tipo de servicio dependiendo del id',
+    name: 'id',
+  })
   @Delete('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async eliminarTipoServicio(

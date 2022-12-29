@@ -12,6 +12,13 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import {
+  ApiBody,
+  ApiOkResponse,
+  ApiParam,
+  ApiProperty,
+  ApiTags,
+} from '@nestjs/swagger';
+import {
   ACTUALIZADO,
   CREADO,
   ELIMINADO,
@@ -21,6 +28,7 @@ import { DTOClientes } from '../../dto';
 import { Clientes } from '../../entities';
 import { ClientesService } from '../../services';
 
+@ApiTags('Módulo Clientes')
 @Controller('clientes')
 export class ClientesController {
   constructor(private readonly clientes_service: ClientesService) {}
@@ -31,6 +39,10 @@ export class ClientesController {
     return await this.clientes_service.obtenerClientes();
   }
 
+  @ApiParam({
+    description: 'Obtiene un cliente por su ID',
+    name: 'id',
+  })
   @Get('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerCliente(
@@ -39,6 +51,7 @@ export class ClientesController {
     return await this.clientes_service.obtenerCliente(id);
   }
 
+  @ApiBody({ description: 'Diseñada para crear clienes', type: DTOClientes })
   @Post('')
   @HttpCode(HttpStatus.ACCEPTED)
   async crearCliente(
@@ -60,6 +73,10 @@ export class ClientesController {
       });
   }
 
+  @ApiBody({
+    description: 'Diseñada para modificar clienes',
+    type: DTOClientes,
+  })
   @Patch('')
   @HttpCode(HttpStatus.ACCEPTED)
   async modificarCliente(
@@ -81,6 +98,10 @@ export class ClientesController {
       });
   }
 
+  @ApiParam({
+    description: 'Elimina un cliente por su ID',
+    name: 'id',
+  })
   @Delete('/:id')
   @HttpCode(HttpStatus.ACCEPTED)
   async eliminarClientes(

@@ -8,14 +8,13 @@
 
 [Api Publica](https://imaginemos-mei-api.onrender.com) enlace para acceder a la api.
 [Api documentada](https://imaginemos-mei-api.onrender.com/docs) documentacion de la api con swagger.
-
+[Pruebas con postman](https://www.postman.com/musicar-ingenieria/workspace/pruebas/collection/15670423-60f3d5da-838d-4d58-88aa-749287789ccf?action=share&creator=15670423&ctx=documentation) Documentación con postman, cambiar Enviroment a Production.
 
 ## Tecnologias Usadas
 
 [PostgreSql](https://www.postgresql.org/) como gestor de base de datos.
 [TypeORM](https://typeorm.io/) como ORM para la comunicación entre bd y aplicación.
 [Docker](https://www.docker.com/) como contenedor de despliegue
-
 
 ## Descripcion
 
@@ -46,8 +45,6 @@ comportamiento.
 ● Deploy (serverless framework).
 ● Documentación con swagger.
 ● Realizarlo con microservicios.
-
-
 
 ## Instalación
 
@@ -85,13 +82,10 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-
-
 ## Extras
 
 - Author - [Cristian Mosquera](https://github.com/PacificBlack)
 - Nota - El archivo .env se agrega en esta ocación para ya tener las variables de entorno una vez clonado el proyecto
-
 
 ## License
 

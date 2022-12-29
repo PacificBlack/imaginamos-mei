@@ -10,6 +10,7 @@ import {
   Post,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 import {
   ACTUALIZADO,
   CREADO,
@@ -20,6 +21,7 @@ import { DTOTecnicos } from '../../dto';
 import { Tecnicos } from '../../entities';
 import { TecnicosService } from '../../services';
 
+@ApiTags('Módulo Tecnicos - Tecnicos')
 @Controller('tecnicos')
 export class TecnicosController {
   constructor(private readonly tecnicos_services: TecnicosService) {}
@@ -30,6 +32,10 @@ export class TecnicosController {
     return await this.tecnicos_services.obtenerTecnicos();
   }
 
+  @ApiParam({
+    description: 'Obtiene un Tecnico dependiendo del codigo',
+    name: 'codigo',
+  })
   @Get('/:codigo')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerTecnico(
@@ -38,6 +44,10 @@ export class TecnicosController {
     return await this.tecnicos_services.obtenerTecnico(codigo_tecnico);
   }
 
+  @ApiBody({
+    description: 'Diseñada para crear tenicos',
+    type: DTOTecnicos,
+  })
   @Post('')
   @HttpCode(HttpStatus.ACCEPTED)
   async crearTecnico(
@@ -59,6 +69,10 @@ export class TecnicosController {
       });
   }
 
+  @ApiBody({
+    description: 'Diseñada para modificar tenicos',
+    type: DTOTecnicos,
+  })
   @Patch('')
   @HttpCode(HttpStatus.ACCEPTED)
   async modificarTecnico(
@@ -80,6 +94,10 @@ export class TecnicosController {
       });
   }
 
+  @ApiParam({
+    description: 'Elimina un Tecnico dependiendo del codigo',
+    name: 'codigo',
+  })
   @Delete('/:codigo')
   @HttpCode(HttpStatus.ACCEPTED)
   async eliminarTecnico(

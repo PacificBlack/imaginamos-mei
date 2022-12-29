@@ -10,6 +10,7 @@ import {
   Post,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger';
 import {
   Respuesta,
   CREADO,
@@ -20,6 +21,7 @@ import { DTOOrdenesServicio } from '../../dto';
 import { OrdenesServicio } from '../../entities';
 import { OrdenesServicioService } from '../../services';
 
+@ApiTags('Módulo Ordenes - Ordenes Servicio')
 @Controller('ordenes-servicio')
 export class OrdenesServicioController {
   constructor(
@@ -32,6 +34,10 @@ export class OrdenesServicioController {
     return await this.ordenes_servicio_service.obtenerOrdenesServicios();
   }
 
+  @ApiParam({
+    description: 'Obtiene una orden de servicio dependiendo del Token',
+    name: 'token',
+  })
   @Get('token/:token')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerOrdenServicioxToken(
@@ -42,6 +48,11 @@ export class OrdenesServicioController {
     );
   }
 
+  @ApiParam({
+    description:
+      'Obtiene ordenes de servicio dependiendo el codigo del Tecnico',
+    name: 'codigo',
+  })
   @Get('tecnico/:codigo')
   @HttpCode(HttpStatus.ACCEPTED)
   async obtenerOrdenServicioxTecnico(
@@ -52,6 +63,10 @@ export class OrdenesServicioController {
     );
   }
 
+  @ApiBody({
+    description: 'Diseñada para crear ordenes de servicio',
+    type: DTOOrdenesServicio,
+  })
   @Post('')
   @HttpCode(HttpStatus.ACCEPTED)
   async crearOrderServicio(
@@ -74,6 +89,10 @@ export class OrdenesServicioController {
       });
   }
 
+  @ApiBody({
+    description: 'Diseñada para modificar ordenes de servicio',
+    type: DTOOrdenesServicio,
+  })
   @Patch('')
   @HttpCode(HttpStatus.ACCEPTED)
   async modificarOrdenServicio(
@@ -95,6 +114,10 @@ export class OrdenesServicioController {
       });
   }
 
+  @ApiParam({
+    description: 'Elimina una orden por su token',
+    name: 'token',
+  })
   @Delete('/:token')
   @HttpCode(HttpStatus.ACCEPTED)
   async eliminarOrdenServicio(
